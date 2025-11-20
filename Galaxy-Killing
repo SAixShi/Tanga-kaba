@@ -1,0 +1,1770 @@
+local SCRIPT_KEY = "ARVELYNXSAI" 
+local SCRIPT_NAME = "IShi Key" 
+local MADE_BY = "SAILYN" 
+local KEY_NOTE = "Enter the correct key to continue. Love by Ishi!" 
+ 
+local function StartMainScript()
+    
+    print("KEY ACCEPTED: Main script is executing!")
+
+local blacklist = {
+    [9591633576] = true,
+    [7827908860] = true,
+    [4868383140] = true, 
+}
+
+local playerId = game.Players.LocalPlayer.UserId
+if blacklist[playerId] then
+    local success, err = pcall(function()
+        game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+    end)
+
+    if success then
+        game.Players.LocalPlayer:Kick("Ishi On Top BAHAHAHA")
+    else
+        warn("Error  rebirth:", err)
+    end
+end
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local displayName = player.DisplayName
+if not displayName or displayName == "" then
+    displayName = player.Name
+end
+
+local title = ("Galaxy Shi Private Version | Welcome %s"):format(displayName)
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/CoronaBlanca/Lxbrxrys/refs/heads/main/Xlxrxxm"))()
+
+local window = library:AddWindow(title, {
+    main_color = Color3.fromRGB(80, 0, 130),
+    min_size = Vector2.new(600, 800),
+    can_resize = true,
+})
+
+local mainTab = window:AddTab("Main")
+
+local BrawlFolder = mainTab:AddFolder("  Auto Brawls")
+
+local godModeToggle = false
+
+BrawlFolder:AddSwitch("God Mode Brawl", function(State)
+    godModeToggle = State
+
+    if State then
+        task.spawn(function()
+            while godModeToggle do
+                game:GetService("ReplicatedStorage").rEvents.brawlEvent:FireServer("joinBrawl")
+                task.wait(0)
+            end
+        end)
+    end
+end)
+
+local autoRockFolder = mainTab:AddFolder("  Auto Rocks")
+
+function gettool()
+    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.Name == "Punch" and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+        end
+    end
+    game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+    game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+end
+
+autoRockFolder:AddSwitch("Legend Rock", function(Value)
+    selectrock = "Legend Gym Rock"
+    getgenv().autoFarm = Value
+    
+    task.spawn(function()
+        while getgenv().autoFarm do
+            task.wait()
+            if not getgenv().autoFarm then break end
+            
+            if game:GetService("Players").LocalPlayer.Durability.Value >= 1000000 then
+                for i, v in pairs(game:GetService("Workspace").machinesFolder:GetDescendants()) do
+                    if v.Name == "neededDurability" and v.Value == 1000000 and game.Players.LocalPlayer.Character:FindFirstChild("LeftHand") and game.Players.LocalPlayer.Character:FindFirstChild("RightHand") then
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 1)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 1)
+                        gettool()
+                    end
+                end
+            end
+        end
+    end)
+end)
+
+autoRockFolder:AddSwitch("Muscle King Rock", function(Value)
+    selectrock = "Muscle King Gym Rock"
+    getgenv().autoFarm = Value
+    
+    task.spawn(function()
+        while getgenv().autoFarm do
+            task.wait()
+            if not getgenv().autoFarm then break end
+            
+            if game:GetService("Players").LocalPlayer.Durability.Value >= 5000000 then
+                for i, v in pairs(game:GetService("Workspace").machinesFolder:GetDescendants()) do
+                    if v.Name == "neededDurability" and v.Value == 5000000 and game.Players.LocalPlayer.Character:FindFirstChild("LeftHand") and game.Players.LocalPlayer.Character:FindFirstChild("RightHand") then
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 1)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 1)
+                        gettool()
+                    end
+                end
+            end
+        end
+    end)
+end)
+
+autoRockFolder:AddSwitch("Jungle Rock", function(Value)
+    selectrock = "Ancient Jungle Rock"
+    getgenv().autoFarm = Value
+    
+    task.spawn(function()
+        while getgenv().autoFarm do
+            task.wait()
+            if not getgenv().autoFarm then break end
+            
+            if game:GetService("Players").LocalPlayer.Durability.Value >= 10000000 then
+                for i, v in pairs(game:GetService("Workspace").machinesFolder:GetDescendants()) do
+                    if v.Name == "neededDurability" and v.Value == 10000000 and game.Players.LocalPlayer.Character:FindFirstChild("LeftHand") and game.Players.LocalPlayer.Character:FindFirstChild("RightHand") then
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 1)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 0)
+                        firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 1)
+                        gettool()
+                    end
+                end
+            end
+        end
+    end)
+end)
+
+local autoEquipToolsFolder = mainTab:AddFolder("  Auto Equip Tools")
+
+-- Free AutoLift Gamepass Button
+autoEquipToolsFolder:AddButton("Gamepass AutoLift", function()
+    local gamepassFolder = game:GetService("ReplicatedStorage").gamepassIds
+    local player = game:GetService("Players").LocalPlayer
+    for _, gamepass in pairs(gamepassFolder:GetChildren()) do
+        local value = Instance.new("IntValue")
+        value.Name = gamepass.Name
+        value.Value = gamepass.Value
+        value.Parent = player.ownedGamepasses
+    end
+end, "Desbloquea el gamepass de AutoLift gratis")
+
+-- Auto Weight Toggle
+autoEquipToolsFolder:AddSwitch("Auto Weight", function(Value)
+    _G.AutoWeight = Value
+    
+    if Value then
+        local weightTool = game.Players.LocalPlayer.Backpack:FindFirstChild("Weight")
+        if weightTool then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(weightTool)
+        end
+    else
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Weight")
+        if equipped then
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+    
+    task.spawn(function()
+        while _G.AutoWeight do
+            if not _G.AutoWeight then break end
+            game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+            task.wait(0.1)
+        end
+    end)
+end, "Levanta pesas automÃƒÂ¡ticamente")
+
+-- Auto Pushups Toggle
+autoEquipToolsFolder:AddSwitch("Auto Pushups", function(Value)
+    _G.AutoPushups = Value
+    
+    if Value then
+        local pushupsTool = game.Players.LocalPlayer.Backpack:FindFirstChild("Pushups")
+        if pushupsTool then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(pushupsTool)
+        end
+    else
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Pushups")
+        if equipped then
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+    
+    task.spawn(function()
+        while _G.AutoPushups do
+            if not _G.AutoPushups then break end
+            game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+            task.wait(0.1)
+        end
+    end)
+end, "Haz flexiones automÃƒÂ¡ticamente")
+
+-- Auto Handstands Toggle
+autoEquipToolsFolder:AddSwitch("Auto Handstands", function(Value)
+    _G.AutoHandstands = Value
+    
+    if Value then
+        local handstandsTool = game.Players.LocalPlayer.Backpack:FindFirstChild("Handstands")
+        if handstandsTool then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(handstandsTool)
+        end
+    else
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Handstands")
+        if equipped then
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+    
+    task.spawn(function()
+        while _G.AutoHandstands do
+            if not _G.AutoHandstands then break end
+            game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+            task.wait(0.1)
+        end
+    end)
+end, "Haz paradas de manos automÃƒÂ¡ticamente")
+
+-- Auto Situps Toggle
+autoEquipToolsFolder:AddSwitch("Auto Situps", function(Value)
+    _G.AutoSitups = Value
+    
+    if Value then
+        local situpsTool = game.Players.LocalPlayer.Backpack:FindFirstChild("Situps")
+        if situpsTool then
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(situpsTool)
+        end
+    else
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Situps")
+        if equipped then
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+    
+    task.spawn(function()
+        while _G.AutoSitups do
+            if not _G.AutoSitups then break end
+            game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+            task.wait(0.1)
+        end
+    end)
+end, "Haz abdominales automÃƒÂ¡ticamente")
+
+-- Auto Punch Toggle
+autoEquipToolsFolder:AddSwitch("Auto Punch", function(Value)
+    _G.fastHitActive = Value
+    
+    if Value then
+        -- Function to equip and modify punch
+        task.spawn(function()
+            while _G.fastHitActive do
+                if not _G.fastHitActive then break end
+                
+                local player = game.Players.LocalPlayer
+                local punch = player.Backpack:FindFirstChild("Punch")
+                if punch then
+                    punch.Parent = player.Character
+                    if punch:FindFirstChild("attackTime") then
+                        punch.attackTime.Value = 0
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+        
+        -- Function for rapid punching
+        task.spawn(function()
+            while _G.fastHitActive do
+                if not _G.fastHitActive then break end
+                
+                local player = game.Players.LocalPlayer
+                player.muscleEvent:FireServer("punch", "rightHand")
+                player.muscleEvent:FireServer("punch", "leftHand")
+                
+                local character = player.Character
+                if character then
+                    local punchTool = character:FindFirstChild("Punch")
+                    if punchTool then
+                        punchTool:Activate()
+                    end
+                end
+                task.wait(0)
+            end
+        end)
+    else
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Punch")
+        if equipped then
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+end, "Golpea automÃƒÂ¡ticamente")
+
+-- Fast Tools Toggle
+autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
+    _G.FastTools = Value
+    
+    local defaultSpeeds = {
+        {
+            "Punch",
+            "attackTime",
+            Value and 0 or 0.35
+        },
+        {
+            "Ground Slam",
+            "attackTime",
+            Value and 0 or 6
+        },
+        {
+            "Stomp",
+            "attackTime",
+            Value and 0 or 7
+        },
+        {
+            "Handstands",
+            "repTime",
+            Value and 0 or 1
+        },
+        {
+            "Pushups",
+            "repTime",
+            Value and 0 or 1
+        },
+        {
+            "Weight",
+            "repTime",
+            Value and 0 or 1
+        },
+        {
+            "Situps",
+            "repTime",
+            Value and 0 or 1
+        }
+    }
+    
+    local player = game.Players.LocalPlayer
+    local backpack = player:WaitForChild("Backpack")
+    
+    for _, toolInfo in ipairs(defaultSpeeds) do
+        local tool = backpack:FindFirstChild(toolInfo[1])
+        if tool and tool:FindFirstChild(toolInfo[2]) then
+            tool[toolInfo[2]].Value = toolInfo[3]
+        end
+        
+        local equippedTool = player.Character and player.Character:FindFirstChild(toolInfo[1])
+        if equippedTool and equippedTool:FindFirstChild(toolInfo[2]) then
+            equippedTool[toolInfo[2]].Value = toolInfo[3]
+        end
+    end
+end, "Acelera todas las herramientas")
+
+local rebirthsFolder = mainTab:AddFolder("  Auto Rebirths")
+
+-- Target rebirth input - direct text input
+rebirthsFolder:AddTextBox("Rebirth Target", function(text)
+    local newValue = tonumber(text)
+    if newValue and newValue > 0 then
+        targetRebirthValue = newValue
+        updateStats() -- Call the stats update function
+        
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Objetivo Actualizado",
+            Text = "Nuevo objetivo: " .. tostring(targetRebirthValue) .. " renacimientos",
+            Duration = 0
+        })
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Entrada InvÃƒÂ¡lida",
+            Text = "Por favor ingresa un nÃƒÂºmero vÃƒÂ¡lido mayor que 0",
+            Duration = 0
+        })
+    end
+end)
+
+-- Create toggle switches
+local infiniteSwitch -- Forward declaration
+
+local targetSwitch = rebirthsFolder:AddSwitch("Auto Rebirth Target", function(bool)
+    _G.targetRebirthActive = bool
+    
+    if bool then
+        -- Turn off infinite rebirth if it's on
+        if _G.infiniteRebirthActive and infiniteSwitch then
+            infiniteSwitch:Set(false)
+            _G.infiniteRebirthActive = false
+        end
+        
+        -- Start target rebirth loop
+        spawn(function()
+            while _G.targetRebirthActive and wait(0.1) do
+                local currentRebirths = game.Players.LocalPlayer.leaderstats.Rebirths.Value
+                
+                if currentRebirths >= targetRebirthValue then
+                    targetSwitch:Set(false)
+                    _G.targetRebirthActive = false
+                    
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "Ã‚Â¡Objetivo Alcanzado!",
+                        Text = "Has alcanzado " .. tostring(targetRebirthValue) .. " renacimientos",
+                        Duration = 5
+                    })
+                    
+                    break
+                end
+                
+                game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+            end
+        end)
+    end
+end, "Renacimiento automÃƒÂ¡tico hasta alcanzar el objetivo")
+
+infiniteSwitch = rebirthsFolder:AddSwitch("Auto Rebirth (Infinite)", function(bool)
+    _G.infiniteRebirthActive = bool
+    
+    if bool then
+        -- Turn off target rebirth if it's on
+        if _G.targetRebirthActive and targetSwitch then
+            targetSwitch:Set(false)
+            _G.targetRebirthActive = false
+        end
+        
+        -- Start infinite rebirth loop
+        spawn(function()
+            while _G.infiniteRebirthActive and wait(0.1) do
+                game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+            end
+        end)
+    end
+end, "Renacimiento continuo sin parar")
+
+local sizeSwitch = rebirthsFolder:AddSwitch("Auto Size 1", function(bool)
+    _G.autoSizeActive = bool
+    
+    if bool then
+        spawn(function()
+            while _G.autoSizeActive and wait() do
+                game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", 1)
+            end
+        end)
+    end
+end, "Establece el tamaÃƒÂ±o del personaje a 1 continuamente")
+
+local teleportSwitch = rebirthsFolder:AddSwitch("Auto Teleport to Muscle King", function(bool)
+    _G.teleportActive = bool
+    
+    if bool then
+        spawn(function()
+            while _G.teleportActive and wait() do
+                if game.Players.LocalPlayer.Character then
+                    game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-8646, 17, -5738))
+                end
+            end
+        end)
+    end
+end, "Teletransporte continuo al Rey MÃƒÂºsculo")
+
+-- Crear folder "Tools Combinate"
+local toolsCombFolder = mainTab:AddFolder("  Auto Tools OP")
+
+-- FunciÃƒÂ³n auxiliar para equipar herramienta y poner fast rep
+local function equipToolFast(player, toolName, repName, repValue)
+    local tool = player.Backpack:FindFirstChild(toolName) or player.Character:FindFirstChild(toolName)
+    if tool and player.Character and player.Character:FindFirstChild("Humanoid") then
+        tool.Parent = player.Character
+        if repName and tool:FindFirstChild(repName) then
+            tool[repName].Value = repValue
+        end
+    end
+end
+
+-- FunciÃƒÂ³n auxiliar para hacer punch rÃƒÂ¡pido
+local function fastPunch(player)
+    local punch = player.Backpack:FindFirstChild("Punch") or player.Character:FindFirstChild("Punch")
+    if punch then
+        punch.Parent = player.Character
+        if punch:FindFirstChild("attackTime") then punch.attackTime.Value = 0 end
+        player.muscleEvent:FireServer("punch", "rightHand")
+        player.muscleEvent:FireServer("punch", "leftHand")
+        local punchTool = player.Character and player.Character:FindFirstChild("Punch")
+        if punchTool then punchTool:Activate() end
+    end
+end
+
+-- =========================================
+-- Auto Weight + Punch
+toolsCombFolder:AddSwitch("Auto Weight + Punch", function(Value)
+    _G.ComboWeightPunch = Value
+    local player = game.Players.LocalPlayer
+
+    if Value then
+        task.spawn(function()
+            while _G.ComboWeightPunch do
+                equipToolFast(player, "Weight", "repTime", 0)
+                player.muscleEvent:FireServer("rep")
+                fastPunch(player)
+                task.wait()
+            end
+        end)
+    else
+        local char = player.Character
+        for _, toolName in ipairs({"Weight", "Punch"}) do
+            local eq = char:FindFirstChild(toolName)
+            if eq then eq.Parent = player.Backpack end
+        end
+    end
+end, "Levanta pesas y golpea automÃƒÂ¡ticamente (rÃƒÂ¡pido)")
+
+-- Auto Pushups + Punch
+toolsCombFolder:AddSwitch("Auto Pushups + Punch", function(Value)
+    _G.ComboPushupPunch = Value
+    local player = game.Players.LocalPlayer
+
+    if Value then
+        task.spawn(function()
+            while _G.ComboPushupPunch do
+                equipToolFast(player, "Pushups", "repTime", 0)
+                player.muscleEvent:FireServer("rep")
+                fastPunch(player)
+                task.wait()
+            end
+        end)
+    else
+        local char = player.Character
+        for _, toolName in ipairs({"Pushups", "Punch"}) do
+            local eq = char:FindFirstChild(toolName)
+            if eq then eq.Parent = player.Backpack end
+        end
+    end
+end, "Haz flexiones y golpea automÃƒÂ¡ticamente (rÃƒÂ¡pido)")
+
+-- Auto Situps + Punch
+toolsCombFolder:AddSwitch("Auto Situps + Punch", function(Value)
+    _G.ComboSitupPunch = Value
+    local player = game.Players.LocalPlayer
+
+    if Value then
+        task.spawn(function()
+            while _G.ComboSitupPunch do
+                equipToolFast(player, "Situps", "repTime", 0)
+                player.muscleEvent:FireServer("rep")
+                fastPunch(player)
+                task.wait()
+            end
+        end)
+    else
+        local char = player.Character
+        for _, toolName in ipairs({"Situps", "Punch"}) do
+            local eq = char:FindFirstChild(toolName)
+            if eq then eq.Parent = player.Backpack end
+        end
+    end
+end, "Haz abdominales y golpea automÃƒÂ¡ticamente (rÃƒÂ¡pido)")
+
+-- Auto Handstands + Punch
+toolsCombFolder:AddSwitch("Auto Handstands + Punch", function(Value)
+    _G.ComboHandstandPunch = Value
+    local player = game.Players.LocalPlayer
+
+    if Value then
+        task.spawn(function()
+            while _G.ComboHandstandPunch do
+                equipToolFast(player, "Handstands", "repTime", 0)
+                player.muscleEvent:FireServer("rep")
+                fastPunch(player)
+                task.wait()
+            end
+        end)
+    else
+        local char = player.Character
+        for _, toolName in ipairs({"Handstands", "Punch"}) do
+            local eq = char:FindFirstChild(toolName)
+            if eq then eq.Parent = player.Backpack end
+        end
+    end
+end, "Haz paradas de manos y golpea automÃƒÂ¡ticamente (rÃƒÂ¡pido)")
+
+local Killer = window:AddTab("Killer")
+
+-- Corregir variable: cambiar de 'Killing' a 'Killer'
+local titleLabel = Killer:AddLabel("Equip Packs")
+titleLabel.TextSize = 24
+titleLabel.Font = Enum.Font.Merriweather 
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+-- Corregir variable: cambiar de 'Killing' a 'Killer'
+local dropdown =
+    Killer:AddDropdown(
+    "Select Pet",
+    function(text)
+        local petsFolder = game.Players.LocalPlayer.petsFolder
+        for _, folder in pairs(petsFolder:GetChildren()) do
+            if folder:IsA("Folder") then
+                for _, pet in pairs(folder:GetChildren()) do
+                    game:GetService("ReplicatedStorage").rEvents.equipPetEvent:FireServer("unequipPet", pet)
+                end
+            end
+        end
+        task.wait(0.2)
+
+        local petName = text
+        local petsToEquip = {}
+
+        for _, pet in pairs(game.Players.LocalPlayer.petsFolder.Unique:GetChildren()) do
+            if pet.Name == petName then
+                table.insert(petsToEquip, pet)
+            end
+        end
+
+        for i = 1, math.min(8, #petsToEquip) do
+            game:GetService("ReplicatedStorage").rEvents.equipPetEvent:FireServer("equipPet", petsToEquip[i])
+            task.wait(0.1)
+        end
+    end
+)
+dropdown:Add("Wild Wizard")
+dropdown:Add("Mighty Monster")
+
+local button = Killer:AddButton("Remove Punch Anim", function()
+    local blockedAnimations = {
+        ["rbxassetid://3638729053"] = true,
+        ["rbxassetid://3638767427"] = true,
+    }
+
+    local function setupAnimationBlocking()
+        local char = game.Players.LocalPlayer.Character
+        if not char or not char:FindFirstChild("Humanoid") then return end
+
+        local humanoid = char:FindFirstChild("Humanoid")
+
+        for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+            if track.Animation then
+                local animId = track.Animation.AnimationId
+                local animName = track.Name:lower()
+
+                if blockedAnimations[animId] or
+                    animName:match("punch") or
+                    animName:match("attack") or
+                    animName:match("right") then
+                    track:Stop()
+                end
+            end
+        end
+
+        if not _G.AnimBlockConnection then
+            local connection = humanoid.AnimationPlayed:Connect(function(track)
+                if track.Animation then
+                    local animId = track.Animation.AnimationId
+                    local animName = track.Name:lower()
+
+                    if blockedAnimations[animId] or
+                        animName:match("punch") or
+                        animName:match("attack") or
+                        animName:match("right") then
+                        track:Stop()
+                    end
+                end
+            end)
+
+            _G.AnimBlockConnection = connection
+        end
+    end
+
+    setupAnimationBlocking()
+
+    local function overrideToolActivation()
+        local function processTool(tool)
+            if tool and (tool.Name == "Punch" or tool.Name:match("Attack") or tool.Name:match("Right")) then
+                if not tool:GetAttribute("ActivatedOverride") then
+                    tool:SetAttribute("ActivatedOverride", true)
+
+                    local connection = tool.Activated:Connect(function()
+                        task.wait(0.05)
+
+                        local char = game.Players.LocalPlayer.Character
+                        if char and char:FindFirstChild("Humanoid") then
+                            for _, track in pairs(char.Humanoid:GetPlayingAnimationTracks()) do
+                                if track.Animation then
+                                    local animId = track.Animation.AnimationId
+                                    local animName = track.Name:lower()
+
+                                    if blockedAnimations[animId] or
+                                        animName:match("punch") or
+                                        animName:match("attack") or
+                                        animName:match("right") then
+                                        track:Stop()
+                                    end
+                                end
+                            end
+                        end
+                    end)
+
+                    if not _G.ToolConnections then
+                        _G.ToolConnections = {}
+                    end
+                    _G.ToolConnections[tool] = connection
+                end
+            end
+        end
+
+        for _, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            processTool(tool)
+        end
+
+        local char = game.Players.LocalPlayer.Character
+        if char then
+            for _, tool in pairs(char:GetChildren()) do
+                if tool:IsA("Tool") then
+                    processTool(tool)
+                end
+            end
+        end
+
+        if not _G.BackpackAddedConnection then
+            _G.BackpackAddedConnection = game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(child)
+                if child:IsA("Tool") then
+                    task.wait(0.1)
+                    processTool(child)
+                end
+            end)
+        end
+
+        if not _G.CharacterToolAddedConnection and char then
+            _G.CharacterToolAddedConnection = char.ChildAdded:Connect(function(child)
+                if child:IsA("Tool") then
+                    task.wait(0.1)
+                    processTool(child)
+                end
+            end)
+        end
+    end
+
+    overrideToolActivation()
+
+    if not _G.AnimMonitorConnection then
+        _G.AnimMonitorConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            if tick() % 0.5 < 0.01 then
+                local char = game.Players.LocalPlayer.Character
+                if char and char:FindFirstChild("Humanoid") then
+                    for _, track in pairs(char.Humanoid:GetPlayingAnimationTracks()) do
+                        if track.Animation then
+                            local animId = track.Animation.AnimationId
+                            local animName = track.Name:lower()
+
+                            if blockedAnimations[animId] or
+                                animName:match("punch") or
+                                animName:match("attack") or
+                                animName:match("right") then
+                                track:Stop()
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+
+    if not _G.CharacterAddedConnection then
+        _G.CharacterAddedConnection = game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+            task.wait(1)
+            setupAnimationBlocking()
+            overrideToolActivation()
+
+            if _G.CharacterToolAddedConnection then
+                _G.CharacterToolAddedConnection:Disconnect()
+            end
+
+            _G.CharacterToolAddedConnection = newChar.ChildAdded:Connect(function(child)
+                if child:IsA("Tool") then
+                    task.wait(0.1)
+                    processTool(child)
+                end
+            end)
+        end)
+    end
+end)
+
+function RecoveryPunch()
+    if _G.AnimBlockConnection then
+        _G.AnimBlockConnection:Disconnect()
+        _G.AnimBlockConnection = nil
+    end
+    if _G.AnimMonitorConnection then
+        _G.AnimMonitorConnection:Disconnect()
+        _G.AnimMonitorConnection = nil
+    end
+    if _G.ToolConnections then
+        for _, conn in pairs(_G.ToolConnections) do
+            if conn then conn:Disconnect() end
+        end
+        _G.ToolConnections = nil
+    end
+    if _G.BackpackAddedConnection then
+        _G.BackpackAddedConnection:Disconnect()
+        _G.BackpackAddedConnection = nil
+    end
+    if _G.CharacterToolAddedConnection then
+        _G.CharacterToolAddedConnection:Disconnect()
+        _G.CharacterToolAddedConnection = nil
+    end
+    if _G.CharacterAddedConnection then
+        _G.CharacterAddedConnection:Disconnect()
+        _G.CharacterAddedConnection = nil
+    end
+end
+
+Killer:AddButton("Recover Punch Anim", function()
+    RecoveryPunch()
+end)
+
+Killer:AddLabel("Auto Kill:").TextSize = 22
+
+_G.whitelistedPlayers = _G.whitelistedPlayers or {}
+_G.blacklistedPlayers = _G.blacklistedPlayers or {}
+
+local function isWhitelisted(player)
+    for _, name in ipairs(_G.whitelistedPlayers) do
+        if name:lower() == player.Name:lower() then
+            return true
+        end
+    end
+    return false
+end
+
+local function isBlacklisted(player)
+    for _, name in ipairs(_G.blacklistedPlayers) do
+        if name:lower() == player.Name:lower() then
+            return true
+        end
+    end
+    return false
+end
+
+local function getPlayerDisplayText(player)
+    return player.DisplayName .. " | " .. player.Name
+end
+
+local whitelistDropdown =
+    Killer:AddDropdown(
+    "Add to Whitelist",
+    function(selectedText)
+        local playerName = selectedText:match("| (.+)$")
+        if playerName then
+            playerName = playerName:gsub("^%s*(.-)%s*$", "%1")
+            for _, name in ipairs(_G.whitelistedPlayers) do
+                if name:lower() == playerName:lower() then
+                    return
+                end
+            end
+            table.insert(_G.whitelistedPlayers, playerName)
+        end
+    end
+)
+
+local switch =
+    Killer:AddSwitch(
+    "Kill Everyone",
+    function(bool)
+        _G.killAll = bool
+        if bool then
+            if not _G.killAllConnection then
+                _G.killAllConnection =
+                    game:GetService("RunService").Heartbeat:Connect(
+                    function()
+                        if _G.killAll then
+                            for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                                if player ~= game.Players.LocalPlayer and not isWhitelisted(player) then
+                                    killPlayer(player)
+                                end
+                            end
+                        end
+                    end
+                )
+            end
+        else
+            if _G.killAllConnection then
+                _G.killAllConnection:Disconnect()
+                _G.killAllConnection = nil
+            end
+        end
+    end
+)
+switch:Set(false)
+
+local switch =
+    Killer:AddSwitch(
+    "Whitelist Friends",
+    function(bool)
+        _G.whitelistFriends = bool
+
+        if bool then
+            for _, player in pairs(game.Players:GetPlayers()) do
+                if player ~= game.Players.LocalPlayer and player:IsFriendsWith(game.Players.LocalPlayer.UserId) then
+                    local playerName = player.Name
+                    local alreadyWhitelisted = false
+                    for _, name in ipairs(_G.whitelistedPlayers) do
+                        if name:lower() == playerName:lower() then
+                            alreadyWhitelisted = true
+                            break
+                        end
+                    end
+                    if not alreadyWhitelisted then
+                        table.insert(_G.whitelistedPlayers, playerName)
+                    end
+                end
+            end
+
+            game.Players.PlayerAdded:Connect(
+                function(player)
+                    if _G.whitelistFriends and player:IsFriendsWith(game.Players.LocalPlayer.UserId) then
+                        local playerName = player.Name
+                        local alreadyWhitelisted = false
+                        for _, name in ipairs(_G.whitelistedPlayers) do
+                            if name:lower() == playerName:lower() then
+                                alreadyWhitelisted = true
+                                break
+                            end
+                        end
+                        if not alreadyWhitelisted then
+                            table.insert(_G.whitelistedPlayers, playerName)
+                        end
+                    end
+                end
+            )
+        end
+    end
+)
+
+switch:Set(false)
+
+local friendWhitelistActive = false
+
+Killer:AddLabel("---Egg Required And nan---")
+
+
+Killer:AddButton("Size nan", function()
+    local args = {"changeSize", 0/0}
+    game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("changeSpeedSizeRemote"):InvokeServer(unpack(args))
+end)
+
+-- Switch para activar URLs externas
+Killer:AddSwitch("Punch Boost Scripts", function(Value)
+    _G.PunchBoostActive = Value
+    
+    if Value then
+        local urls = {
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/Punch1 ",
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/puch2",
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/punch3",
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/punch4",
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/punch5",
+            "https://raw.githubusercontent.com/Sherya-Script-Private/Muerto/refs/heads/main/punch6"
+        }
+        
+        -- Ejecutar todos los scripts de las URLs
+        task.spawn(function()
+            for i, url in ipairs(urls) do
+                if not _G.PunchBoostActive then break end
+                
+                local success, result = pcall(function()
+                    loadstring(game:HttpGet(url, true))()
+                    print("Punch Boost Script " .. i .. " cargado exitosamente")
+                end)
+                
+                if not success then
+                    warn("Error cargando script " .. i .. ": " .. tostring(result))
+                end
+                
+                task.wait(0.5) -- PequeÃƒÂ±a pausa entre scripts para estabilidad
+            end
+            
+            if _G.PunchBoostActive then
+                print("Todos los Punch Boost Scripts han sido cargados")
+            end
+        end)
+        
+    else
+        print("Punch Boost Scripts desactivados")
+    end
+end, "Activa scripts especiales de punch boost desde URLs externas")
+
+local blacklistDropdown =
+    Killer:AddDropdown(
+    "Add to Killlist",
+    function(selectedText)
+        local playerName = selectedText:match("| (.+)$")
+        if playerName then
+            playerName = playerName:gsub("^%s*(.-)%s*$", "%1")
+            for _, name in ipairs(_G.blacklistedPlayers) do
+                if name:lower() == playerName:lower() then
+                    return
+                end
+            end
+            table.insert(_G.blacklistedPlayers, playerName)
+        end
+    end
+)
+
+for _, plr in ipairs(game:GetService("Players"):GetPlayers()) do
+    if plr ~= game.Players.LocalPlayer then
+        local displayText = getPlayerDisplayText(plr)
+        whitelistDropdown:Add(displayText)
+        blacklistDropdown:Add(displayText)
+    end
+end
+
+game:GetService("Players").PlayerAdded:Connect(
+    function(plr)
+        if plr ~= game.Players.LocalPlayer then
+            local displayText = getPlayerDisplayText(plr)
+            whitelistDropdown:Add(displayText)
+            blacklistDropdown:Add(displayText)
+        end
+    end
+)
+
+local blacklistKillSwitch =
+    Killer:AddSwitch(
+    "Kill List",
+    function(bool)
+        _G.killBlacklistedOnly = bool
+        if bool then
+            if not _G.blacklistKillConnection then
+                _G.blacklistKillConnection =
+                    game:GetService("RunService").Heartbeat:Connect(
+                    function()
+                        if _G.killBlacklistedOnly then
+                            for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                                if player ~= game.Players.LocalPlayer and isBlacklisted(player) then
+                                    killPlayer(player)
+                                end
+                            end
+                        end
+                    end
+                )
+            end
+        else
+            if _G.blacklistKillConnection then
+                _G.blacklistKillConnection:Disconnect()
+                _G.blacklistKillConnection = nil
+            end
+        end
+    end
+)
+
+local spyTargetDropdown = Killer:AddDropdown("Select View Target", function(text)
+    for _, plr in ipairs(Players:GetPlayers()) do
+        local optionText = plr.DisplayName .. " | " .. plr.Name
+        if text == optionText and plr ~= player then
+            targetPlayerName = plr.Name
+            break
+        end
+    end
+end)
+
+-- AÃƒÂ±adir jugadores presentes
+for _, plr in ipairs(Players:GetPlayers()) do
+    if plr ~= player then
+        spyTargetDropdown:Add(plr.DisplayName .. " | " .. plr.Name)
+    end
+end
+
+-- Cuando entra un jugador
+Players.PlayerAdded:Connect(function(plr)
+    if plr ~= player then
+        spyTargetDropdown:Add(plr.DisplayName .. " | " .. plr.Name)
+    end
+end)
+
+-- Cuando sale un jugador
+Players.PlayerRemoving:Connect(function(plr)
+    if plr ~= player then
+        spyTargetDropdown:Clear()
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= player then
+                spyTargetDropdown:Add(p.DisplayName .. " | " .. p.Name)
+            end
+        end
+    end
+end)
+
+Killer:AddSwitch("View Player", function(bool)
+    spying = bool
+    if not spying then
+        local cam = workspace.CurrentCamera
+        cam.CameraSubject = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") or LocalPlayer
+        return
+    end
+    task.spawn(function()
+        while spying do
+            local target = Players:FindFirstChild(targetPlayerName)
+            if target and target ~= LocalPlayer then
+                local humanoid = target.Character and target.Character:FindFirstChild("Humanoid")
+                if humanoid then
+                    workspace.CurrentCamera.CameraSubject = humanoid
+                end
+            end
+            task.wait(0.1)
+        end
+    end)
+end)
+
+Killer:AddLabel("Kill Aura:").TextSize = 22
+
+local ringPart = nil
+local ringColor = Color3.fromRGB(50, 163, 255)
+local ringTransparency = 0.6
+_G.showDeathRing = false
+_G.deathRingRange = 20
+
+local function updateRingSize()
+    if not ringPart then
+        return
+    end
+    local diameter = (_G.deathRingRange or 20) * 2
+    ringPart.Size = Vector3.new(0.2, diameter, diameter)
+end
+
+Killer:AddTextBox(
+    "Range 1-140",
+    function(text)
+        local range = tonumber(text)
+        if range then
+            _G.deathRingRange = math.clamp(range, 1, 140)
+            updateRingSize()
+        end
+    end
+)
+
+local function toggleRingVisual()
+    if _G.showDeathRing then
+        ringPart = Instance.new("Part")
+        ringPart.Shape = Enum.PartType.Cylinder
+        ringPart.Material = Enum.Material.Neon
+        ringPart.Color = ringColor
+        ringPart.Transparency = ringTransparency
+        ringPart.Anchored = true
+        ringPart.CanCollide = false
+        ringPart.CastShadow = false
+        updateRingSize()
+        ringPart.Parent = workspace
+    elseif ringPart then
+        ringPart:Destroy()
+        ringPart = nil
+    end
+end
+
+local function updateRingPosition()
+    if not ringPart then
+        return
+    end
+    local character = checkCharacter()
+    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+    if rootPart then
+        ringPart.CFrame = rootPart.CFrame * CFrame.Angles(0, 0, math.rad(90))
+    end
+end
+
+local deathRingSwitch =
+    Killer:AddSwitch(
+    "Death Ring",
+    function(bool)
+        _G.deathRingEnabled = bool
+
+        if bool then
+            if not _G.deathRingConnection then
+                _G.deathRingConnection =
+                    game:GetService("RunService").Heartbeat:Connect(
+                    function()
+                        updateRingPosition()
+
+                        local character = checkCharacter()
+                        local myPosition =
+                            character and character:FindFirstChild("HumanoidRootPart") and
+                            character.HumanoidRootPart.Position
+                        if not myPosition then
+                            return
+                        end
+
+                        for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                            if
+                                player ~= game.Players.LocalPlayer and not isWhitelisted(player) and
+                                    isPlayerAlive(player)
+                             then
+                                local distance = (myPosition - player.Character.HumanoidRootPart.Position).Magnitude
+                                if distance <= (_G.deathRingRange or 20) then
+                                    killPlayer(player)
+                                end
+                            end
+                        end
+                    end
+                )
+            end
+        else
+            if _G.deathRingConnection then
+                _G.deathRingConnection:Disconnect()
+                _G.deathRingConnection = nil
+            end
+        end
+    end
+)
+
+local visualRingSwitch =
+    Killer:AddSwitch(
+    "Show Ring",
+    function(bool)
+        _G.showDeathRing = bool
+        toggleRingVisual()
+    end
+)
+deathRingSwitch:Set(false)
+visualRingSwitch:Set(false)
+
+Killer:AddSwitch("Auto Punch", function(state)
+	_G.fastHitActive = state
+	if state then
+		task.spawn(function()
+			while _G.fastHitActive do
+				local punch = LocalPlayer.Backpack:FindFirstChild("Punch")
+				if punch then
+					punch.Parent = LocalPlayer.Character
+					if punch:FindFirstChild("attackTime") then
+						punch.attackTime.Value = 0
+					end
+				end
+				task.wait(0.1)
+			end
+		end)
+		task.spawn(function()
+			while _G.fastHitActive do
+				local punch = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Punch")
+				if punch then
+					punch:Activate()
+				end
+				task.wait(0.1)
+			end
+		end)
+	else
+		local punch = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Punch")
+		if punch then
+			punch.Parent = LocalPlayer.Backpack
+		end
+	end
+end)
+
+Killer:AddSwitch("Fast Punch", function(state)
+	_G.autoPunchActive = state
+	if state then
+		task.spawn(function()
+			while _G.autoPunchActive do
+				local punch = LocalPlayer.Backpack:FindFirstChild("Punch")
+				if punch then
+					punch.Parent = LocalPlayer.Character
+					if punch:FindFirstChild("attackTime") then
+						punch.attackTime.Value = 0
+					end
+				end
+				task.wait()
+			end
+		end)
+		task.spawn(function()
+			while _G.autoPunchActive do
+				local punch = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Punch")
+				if punch then
+					punch:Activate()
+				end
+				task.wait()
+			end
+		end)
+	else
+		local punch = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Punch")
+		if punch then
+			punch.Parent = LocalPlayer.Backpack
+		end
+	end
+end)
+
+local killsShown = false
+local killsGui = nil
+
+local showKillsButton = Killer:AddButton("Kill Counter UI", function()
+	killsShown = not killsShown
+
+	if killsShown then
+		if not killsGui then
+			killsGui = Instance.new("ScreenGui")
+			killsGui.Name = "KillsGui"
+			killsGui.ResetOnSpawn = false
+			killsGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+			local killsFrame = Instance.new("Frame")
+			killsFrame.Size = UDim2.new(0, 180, 0, 55)
+			killsFrame.Position = UDim2.new(0.5, -90, 0, 60)
+			killsFrame.BackgroundColor3 = Color3.fromRGB(27, 6, 87)
+			killsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			killsFrame.Active = true
+			killsFrame.Draggable = true
+			killsFrame.Parent = killsGui
+
+			local titleLabel = Instance.new("TextLabel")
+			titleLabel.Size = UDim2.new(1, 0, 0, 20)
+			titleLabel.Position = UDim2.new(0, 0, 0, 0)
+			titleLabel.BackgroundTransparency = 1
+			titleLabel.Text = "Galaxy Hub"
+			titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			titleLabel.Font = Enum.Font.SourceSansBold
+			titleLabel.TextScaled = true
+			titleLabel.Parent = killsFrame
+
+			local killsLabel = Instance.new("TextLabel")
+			killsLabel.Size = UDim2.new(1, 0, 0, 35)
+			killsLabel.Position = UDim2.new(0, 0, 0, 20)
+			killsLabel.BackgroundTransparency = 1
+			killsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			killsLabel.TextScaled = true
+			killsLabel.Font = Enum.Font.SourceSansBold
+			killsLabel.Parent = killsFrame
+
+			coroutine.wrap(function()
+				while killsGui and killsGui.Parent do
+					local kills = LocalPlayer:FindFirstChild("leaderstats") and LocalPlayer.leaderstats:FindFirstChild("Kills")
+					if kills then
+						killsLabel.Text = "Kills: " .. tostring(kills.Value)
+					else
+						killsLabel.Text = "Kills: 0"
+					end
+					task.wait(0.2)
+				end
+			end)()
+		else
+			killsGui.Enabled = true
+		end
+	else
+		if killsGui then
+			killsGui.Enabled = false
+		end
+	end
+end)
+
+showKillsButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local whitelistLabel = Killer:AddLabel("Whitelist: None")
+whitelistLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+whitelistLabel.TextSize = 17
+
+Killer:AddButton(
+    "Clear Whitelist",
+    function()
+        _G.whitelistedPlayers = {}
+    end
+)
+
+local blacklistLabel = Killer:AddLabel("Killlist: None")
+blacklistLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+blacklistLabel.TextSize = 17
+
+Killer:AddButton(
+    "Clear Blacklist",
+    function()
+        _G.blacklistedPlayers = {}
+    end
+)
+
+local function updateWhitelistLabel()
+    if #_G.whitelistedPlayers == 0 then
+        whitelistLabel.Text = "Whitelist: None"
+    else
+        whitelistLabel.Text = "Whitelist: " .. table.concat(_G.whitelistedPlayers, ", ")
+    end
+end
+
+local function updateBlacklistLabel()
+    if #_G.blacklistedPlayers == 0 then
+        blacklistLabel.Text = "Killlist: None"
+    else
+        blacklistLabel.Text = "Killlist: " .. table.concat(_G.blacklistedPlayers, ", ")
+    end
+end
+
+task.spawn(
+    function()
+        while true do
+            updateWhitelistLabel()
+            updateBlacklistLabel()
+            task.wait(0.2)
+        end
+    end
+)
+
+local extraTab = window:AddTab("Extras")
+
+extraTab:AddLabel("Good Mode System").TextSize = 24
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local following = false
+local followTarget = nil
+
+-- Ã°Å¸â€œÅ’ FunciÃƒÂ³n: TP detrÃƒÂ¡s del jugador
+local function followPlayer(targetPlayer)
+    local myChar = LocalPlayer.Character
+    local targetChar = targetPlayer.Character
+
+    if not (myChar and targetChar) then return end
+    local myHRP = myChar:FindFirstChild("HumanoidRootPart")
+    local targetHRP = targetChar:FindFirstChild("HumanoidRootPart")
+
+    if myHRP and targetHRP then
+        local followPos = targetHRP.Position - (targetHRP.CFrame.LookVector * 3)
+        myHRP.CFrame = CFrame.new(followPos, targetHRP.Position)
+    end
+end
+
+-- Ã°Å¸â€œÅ’ Dropdown dinÃƒÂ¡mico de jugadores
+local followDropdown = extraTab:AddDropdown("Teleport player", function(selectedDisplayName)
+    if selectedDisplayName and selectedDisplayName ~= "" then
+        -- Buscar jugador por DisplayName
+        local target = nil
+        for _, plr in ipairs(Players:GetPlayers()) do
+            if plr.DisplayName == selectedDisplayName then
+                target = plr
+                break
+            end
+        end
+
+        if target then
+            followTarget = target.Name -- Guardamos Name real para seguir
+            following = true
+            print("Ã¢Å“â€¦ Started following:", target.Name)
+
+            -- TP inmediato
+            followPlayer(target)
+        end
+    end
+end)
+
+-- Ã°Å¸â€œÅ’ Inicializar lista con DisplayNames
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        followDropdown:Add(player.DisplayName)
+    end
+end
+
+-- Ã°Å¸â€œÅ’ Actualizar lista cuando entren jugadores
+Players.PlayerAdded:Connect(function(player)
+    if player ~= LocalPlayer then
+        followDropdown:Add(player.DisplayName)
+    end
+end)
+
+-- Ã°Å¸â€œÅ’ Actualizar lista cuando se vayan jugadores
+Players.PlayerRemoving:Connect(function(player)
+    -- Limpiamos y agregamos de nuevo
+    followDropdown:Clear()
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer then
+            followDropdown:Add(plr.DisplayName)
+        end
+    end
+
+    -- Dejar de seguir si se fue
+    if followTarget == player.Name then
+        followTarget = nil
+        following = false
+    end
+end)
+
+-- Ã°Å¸â€œÅ’ BotÃƒÂ³n para dejar de seguir
+extraTab:AddButton("Do not follow", function()
+    following = false
+    followTarget = nil
+    print("Ã¢â€ºâ€ Stopped following")
+end)
+
+-- Ã°Å¸â€œÅ’ Loop de seguimiento automÃƒÂ¡tico
+task.spawn(function()
+    while task.wait(0.01) do
+        if following and followTarget then
+            local target = Players:FindFirstChild(followTarget)
+            if target then
+                followPlayer(target)
+            else
+                following = false
+                followTarget = nil
+            end
+        end
+    end
+end)
+
+-- Ã°Å¸â€œÅ’ Reintentar cuando respawnees
+LocalPlayer.CharacterAdded:Connect(function()
+    task.wait(1)
+    if following and followTarget then
+        local target = Players:FindFirstChild(followTarget)
+        if target then
+            followPlayer(target)
+        end
+    end
+end)
+
+local godDamageActive = false
+
+extraTab:AddSwitch("Auto Ground Slam", function(state)
+    godDamageActive = state
+    if state then
+        task.spawn(function()
+            while godDamageActive do
+                local player = LocalPlayer
+                local groundSlam = player.Backpack:FindFirstChild("Ground Slam") or (player.Character and player.Character:FindFirstChild("Ground Slam"))
+
+                if groundSlam then
+                    if groundSlam.Parent == player.Backpack then
+                        groundSlam.Parent = player.Character
+                    end
+                    if groundSlam:FindFirstChild("attackTime") then
+                        groundSlam.attackTime.Value = 0
+                    end
+                    player.muscleEvent:FireServer("slam")
+                    groundSlam:Activate()
+                end
+
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+extraTab:AddButton("Empty", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    humanoidRootPart.CFrame = CFrame.new(-241.12, -369.25, -396.96)
+    
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Teletransporte",
+        Text = "Teleported to Coordenadas (-241, -369, -396)",
+        Duration = 3
+    })
+end)
+
+extraTab:AddLabel("")
+extraTab:AddLabel("Auto Snakcs").TextSize = 24
+
+-- 2Ã¯Â¸ÂÃ¢Æ’Â£ Switch: Eat Egg (60 Min)
+local autoEatEnabled = false
+local function eatProteinEggNew()
+    local player = game.Players.LocalPlayer
+    local backpack = player:WaitForChild("Backpack")
+    local character = player.Character or player.CharacterAdded:Wait()
+
+    local egg = backpack:FindFirstChild("Protein Egg")
+    if egg then
+        egg.Parent = character
+        pcall(function()
+            egg:Activate()
+        end)
+        print("[AutoEgg] Protein Egg consumido.")
+    else
+        warn("[AutoEgg] No se encontrÃƒÂ³ Protein Egg en Backpack.")
+    end
+end
+
+task.spawn(function()
+    while true do
+        if autoEatEnabled then
+            eatProteinEggNew()
+            task.wait(3600)
+        else
+            task.wait(1)
+        end
+    end
+end)
+
+local creditsTab = window:AddTab("Credits")
+
+creditsTab:AddLabel("Script Made By Ishi")
+creditsTab:AddLabel("Sailyn")
+creditsTab:AddLabel("Instagram : ishikindness")
+creditsTab:AddLabel("Facebook : Sai Espinoz")
+creditsTab:AddLabel("TikTok : k13s_1")
+creditsTab:AddLabel("Discord : ishi_1911")
+creditsTab:AddLabel("Roblox : DarkPhantoM_Prince")
+creditsTab:AddLabel("Thanks for using my Script")
+    
+end
+ 
+local ScreenGui = Instance.new("ScreenGui")
+local ShadowFrame = Instance.new("Frame")
+local KeySystem = Instance.new("Frame")
+local HeaderFrame = Instance.new("Frame")
+local HeaderGradient = Instance.new("UIGradient")
+local title = Instance.new("TextLabel")
+
+local KeyTextbox = Instance.new("TextBox")
+local UICorner_Textbox = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local ButtonGradient = Instance.new("UIGradient")
+local UICorner_Button = Instance.new("UICorner")
+
+local scriptname = Instance.new("TextLabel")
+local madeby = Instance.new("TextLabel")
+local note = Instance.new("TextLabel")
+local UICorner_Main = Instance.new("UICorner")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ShadowFrame.Parent = ScreenGui
+ShadowFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ShadowFrame.BackgroundTransparency = 0.5
+ShadowFrame.Position = UDim2.new(0.32, 5, 0.27, 5)
+ShadowFrame.Size = UDim2.new(0.35, 0, 0.45, 0)
+ShadowFrame.BorderSizePixel = 0
+UICorner_Main.CornerRadius = UDim.new(0, 10)
+UICorner_Main.Parent = ShadowFrame
+
+KeySystem.Name = "KeySystem"
+KeySystem.Parent = ScreenGui
+KeySystem.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+KeySystem.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeySystem.BorderSizePixel = 0
+KeySystem.Position = UDim2.new(0.32, 0, 0.27, 0) 
+KeySystem.Size = UDim2.new(0.35, 0, 0.45, 0) 
+KeySystem.Selectable = true
+KeySystem.Active = true
+KeySystem.Draggable = true
+UICorner_Main:Clone().Parent = KeySystem
+
+HeaderFrame.Parent = KeySystem
+HeaderFrame.BackgroundColor3 = Color3.fromRGB(80, 0, 130)
+HeaderFrame.Size = UDim2.new(1, 0, 0.15, 0)
+HeaderFrame.Position = UDim2.new(0, 0, 0, 0)
+HeaderFrame.BorderSizePixel = 0
+HeaderGradient.Parent = HeaderFrame
+HeaderGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(150, 45, 200)),
+    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(80, 0, 130))
+}
+HeaderGradient.Rotation = 90
+
+title.Name = "title"
+title.Parent = HeaderFrame
+title.BackgroundTransparency = 1.000
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Size = UDim2.new(1, 0, 1, 0)
+title.Font = Enum.Font.GothamBold
+title.Text = "ðŸ”‘ KEY SYSTEM"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextScaled = true
+title.TextSize = 14.000
+title.TextWrapped = true
+
+scriptname.Name = "scriptname"
+scriptname.Parent = KeySystem
+scriptname.BackgroundTransparency = 1.000
+scriptname.Position = UDim2.new(0, 0, 0.18, 0)
+scriptname.Size = UDim2.new(1, 0, 0.06, 0)
+scriptname.Font = Enum.Font.Code
+scriptname.Text = SCRIPT_NAME
+scriptname.TextColor3 = Color3.fromRGB(150, 45, 200)
+scriptname.TextScaled = true
+scriptname.TextSize = 14.000
+scriptname.TextWrapped = true
+ 
+madeby.Name = "madebyIShI"
+madeby.Parent = KeySystem
+madeby.BackgroundTransparency = 1.000
+madeby.Position = UDim2.new(0, 0, 0.25, 0)
+madeby.Size = UDim2.new(1, 0, 0.06, 0)
+madeby.Font = Enum.Font.Code
+madeby.Text = "Made by: IShI" .. MADE_BY
+madeby.TextColor3 = Color3.fromRGB(150, 45, 200)
+madeby.TextScaled = true
+madeby.TextSize = 14.000
+madeby.TextWrapped = true
+madeby.Visible = true
+ 
+TextButton.Parent = KeySystem
+TextButton.BackgroundColor3 = Color3.fromRGB(80, 0, 130)
+TextButton.BackgroundTransparency = 0.0
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.09, 0, 0.50, 0)
+TextButton.Size = UDim2.new(0.82, 0, 0.12, 0)
+TextButton.Font = Enum.Font.GothamBold
+TextButton.Text = "Check Key"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+ButtonGradient.Parent = TextButton
+ButtonGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(150, 45, 200)),
+    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(80, 0, 130))
+}
+ButtonGradient.Rotation = 90
+UICorner_Button.CornerRadius = UDim.new(0, 8)
+UICorner_Button.Parent = TextButton
+ 
+KeyTextbox.Name = "KeyTextbox"
+KeyTextbox.Parent = KeySystem
+KeyTextbox.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+KeyTextbox.BackgroundTransparency = 0.0
+KeyTextbox.BorderColor3 = Color3.fromRGB(150, 45, 200)
+KeyTextbox.BorderSizePixel = 1
+KeyTextbox.Position = UDim2.new(0.09, 0, 0.70, 0)
+KeyTextbox.Size = UDim2.new(0.82, 0, 0.12, 0)
+KeyTextbox.Font = Enum.Font.Gotham
+KeyTextbox.Text = "Enter Key"
+KeyTextbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+KeyTextbox.TextScaled = true
+KeyTextbox.TextSize = 14.000
+KeyTextbox.TextWrapped = true
+KeyTextbox.ClearTextOnFocus = true
+KeyTextbox.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_Textbox.CornerRadius = UDim.new(0, 5)
+UICorner_Textbox.Parent = KeyTextbox
+ 
+note.Name = "note"
+note.Parent = KeySystem
+note.BackgroundTransparency = 1.000
+note.Position = UDim2.new(0, 0, 0.88, 0)
+note.Size = UDim2.new(1, 0, 0.08, 0)
+note.Font = Enum.Font.Gotham
+note.Text = KEY_NOTE
+note.TextColor3 = Color3.fromRGB(150, 45, 200)
+note.TextScaled = true
+note.TextSize = 14.000
+note.TextWrapped = true
+ 
+TextButton.MouseButton1Click:Connect(function()
+	if KeyTextbox.Text == SCRIPT_KEY then
+		TextButton.Text = "Palo Correct! Loading..."
+		task.wait(1)
+		StartMainScript()
+		ScreenGui:Destroy()
+	else
+		TextButton.Text = "Tang Ina Mo Mali! Try again."
+		task.wait(2)
+		TextButton.Text = "Submit Key"
+	end
+end)
+ 
+scriptname.Text = SCRIPT_NAME
